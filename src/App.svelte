@@ -1,14 +1,14 @@
 <script>
-  let world = 'Hello Svelte';
+  import NewComp from "./NewComp.svelte";
+  import "./app.css";
 </script>
 
-<div class="App">
-  {world}
-</div>
+<h1 class="text-cyan-300">
+  Hello world!
+  <NewComp />
+</h1>
 
 <style>
-  .App {
-    color: aquamarine;
-  }
+
 </style>
 
