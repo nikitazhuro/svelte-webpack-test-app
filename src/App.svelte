@@ -3,6 +3,7 @@
 
   import NewPostModal from './components/NewPostModal.svelte';
   import PostList from './components/Post/PostList.svelte';
+
 </script>
 
 <div class="flex flex-col">
@@ -10,7 +11,14 @@
     <h1>
       post menu:
     </h1>
-    <NewPostModal />
+    <div class="flex">
+      <div>
+        <span>
+          Create post button:
+        </span>
+        <NewPostModal />
+      </div>
+    </div>
   </div>
   <hr class="my-3"/>
   <div>

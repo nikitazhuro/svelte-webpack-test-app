@@ -35,7 +35,7 @@
           {postItem?.author?.city || ''},
           {postItem?.author?.zip || '000000'}
         </p>
-        <p class="mt-3 text-gray-900 text-sm">
+        <p class="mt-3 text-gray-900 text-xl">
           {postItem?.title || 'Empty title'}
        </p>
         <p class="mt-3 text-gray-700 text-sm">
