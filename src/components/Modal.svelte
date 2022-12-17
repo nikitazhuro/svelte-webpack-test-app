@@ -1,0 +1,41 @@
+<script>
+  import PostFormRoot from "./NewPostForm/PostFormRoot.svelte";
+
+  let showModal = false;
+
+  const showModalHandler = () => {
+    showModal = true;
+  };
+
+  let closeModalHandler = () => {
+    showModal = false
+  };
+
+
+</script>
+
+<button on:click={showModalHandler} type="button" class="px-6
+      py-2.5
+      bg-blue-600
+      text-white
+      font-medium
+      text-xs
+      leading-tight
+      uppercase
+      rounded
+      shadow-md
+      hover:bg-blue-700 hover:shadow-lg
+      focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
+      active:bg-blue-800 active:shadow-lg
+      transition
+      duration-150
+      ease-in-out" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Create new post
+</button>
+
+<!-- Modal -->
+
+<PostFormRoot
+  showModal={showModal}
+  closeModalHandler={closeModalHandler}
+/>

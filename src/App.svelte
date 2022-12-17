@@ -1,8 +1,14 @@
 <script>
+  import Modal from './components/Modal.svelte';
+
   import './app.css'
 </script>
 
-<main>
+<div class="flex">
+  <Modal />
+</div>
+
+<!-- <main>
 	<h1 class="m-20">Hello Svelte!</h1>
 	<p>Visit the <a href="/about">Svelte tutorial</a> to learn how to build Svelte apps.</p>
 </main>
@@ -26,5 +32,5 @@
 			max-width: none;
 		}
 	}
-</style>
+</style> -->
 
