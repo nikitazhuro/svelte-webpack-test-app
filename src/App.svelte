@@ -1,24 +1,14 @@
 <script>
-  import { postList } from './store/postStore';
+  import './app.css';
+
   import Modal from './components/Modal.svelte';
-
-  import './app.css'
-
-  let countValue;
-
-  postList.subscribe(value => {
-    countValue = value;
-  });
+  import PostList from './components/Post/PostList.svelte';
 </script>
 
-<div class="flex">
+<div class="flex flex-col">
   <Modal />
-  <hr />
-  {#each countValue as elem}
-	<div>
-		{JSON.stringify(elem)}
-	</div>
-{/each}
+  <hr class="my-3"/>
+  <PostList />
 </div>
 
 <!-- <main>

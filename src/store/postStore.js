@@ -1,5 +1,18 @@
 import { writable } from "svelte/store";
 
-export const postList = writable([
-  { title: 1, name: 'Nikita Zhuro' }
-]);
+// interface IPost {
+
+// }
+
+const postExample = {
+  title: 'Example post title',
+  description: 'Example post description',
+  author: {
+    fullname: 'Nikita Zhuro',
+    city: 'SPB',
+    country: "Russia",
+    zip: 254789,
+  }
+}
+
+export const postList = writable([postExample]);
