@@ -9,7 +9,6 @@ import PostFormBody from "./PostFormBody.svelte";
 
 </script>
 <div
-  on:click={closeModalHandler}
   class="Modal modal fade fixed top-0 left-0 {showModal ? '' : 'hidden'} w-full h-full outline-none overflow-x-hidden overflow-y-auto"
   id="exampleModal"
   tabindex="-1"
@@ -20,8 +19,7 @@ import PostFormBody from "./PostFormBody.svelte";
     <div
       class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
       <PostFormTitle />
-      <PostFormBody />
-      <PostFormFooter closeModalHandler={closeModalHandler} />
+      <PostFormBody closeModalHandler={closeModalHandler} />
     </div>
   </div>
 </div>

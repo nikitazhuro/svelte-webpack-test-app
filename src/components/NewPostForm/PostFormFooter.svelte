@@ -1,5 +1,5 @@
 <script>
-  let closeModalHandler;
+  export let closeModalHandler;
 </script>
 
 <div
