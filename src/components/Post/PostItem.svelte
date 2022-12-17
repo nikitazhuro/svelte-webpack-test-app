@@ -1,5 +1,18 @@
 <script>
+  import DeletePostModal from '../DeletePostModal.svelte';
   export let postItem;
+
+  let showDeletePostModal = false;
+  let postIdForDelete = null;
+
+  const showDeleteModalHandler = (id) => {
+    postIdForDelete = id;
+    showDeletePostModal = true;
+  }
+
+  const closeDeleteModalHandler = () => {
+    showDeletePostModal = false;
+  }
 </script>
 
 <div class="PostItem flex bg-white shadow-lg rounded-lg mr-2 mb-2">
@@ -7,8 +20,15 @@
      <img class="w-12 h-12 rounded-full object-cover mr-4 shadow" src="https://images.unsplash.com/photo-1542156822-6924d1a71ace?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="avatar">
      <div class="w-full">
         <div class="flex items-center justify-between">
-           <h2 class="text-lg font-semibold text-gray-900 -mt-1">{postItem?.author?.fullname || 'Noname'}</h2>
-           <small class="text-sm text-gray-700">22h ago</small>
+           <h2 class="text-lg font-semibold text-gray-900 -mt-1">{postItem?.id}. {postItem?.author?.fullname || 'Noname'}</h2>
+           <div class="flex items-center">
+            <small class="text-sm text-gray-700 mr-1">{postItem?.date || new Date().toDateString()}</small>
+            <button class="border-none" on:click={() => showDeleteModalHandler(postItem?.id)}>
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 flex items-center text-red-500 mx-auto cursor-pointer" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+              </svg>
+            </button>
+           </div>
         </div>
         <p class="text-gray-700">
           {postItem?.author?.country || ''},
@@ -45,8 +65,14 @@
   </div>
 </div>
 
+<DeletePostModal
+  showDeletePostModal={showDeletePostModal}
+  closeDeleteModalHandler={closeDeleteModalHandler}
+  postIdForDelete={postIdForDelete}
+/>
+
 <style>
   .PostItem {
-    width: 350px;
+    width: 450px;
   }
 </style>

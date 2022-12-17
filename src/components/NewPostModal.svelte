@@ -14,7 +14,8 @@
 
 </script>
 
-<button on:click={showModalHandler} type="button" class="px-6
+<div>
+  <button on:click={showModalHandler} type="button" class="px-6
       py-2.5
       bg-blue-600
       text-white
@@ -32,6 +33,7 @@
       ease-in-out" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Create new post
 </button>
+</div>
 
 <!-- Modal -->
 

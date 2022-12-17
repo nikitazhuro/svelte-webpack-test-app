@@ -31,6 +31,7 @@
   const createNewPost = () => {
     const postData = {
       title: postTitle,
+      date: new Date().toDateString(),
       author: {
         fullname: authorFullName,
         city,
@@ -41,16 +42,13 @@
     }
 
     postList.update((value) => {
-      return value = [...value, postData];
+      return value = [...value, { ...postData, id: value.length ? value[value.length - 1].id + 1 : 1 }];
     })
   }
 </script>
 
 <div class="modal-body relative p-4">
-<div class="CreatePostCard">
-  <div class="CreatePostTitle">
-    Create new post form
-  </div>
+<div class="flex justify-center w-full">
   <form class="w-full max-w-lg mt-5">
     <div class="flex flex-wrap -mx-3 mb-6">
       <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -62,7 +60,7 @@
           id="grid-first-name"
           on:change={changePostTitle}
           type="text"
-          placeholder="Jane"
+          placeholder="How to buy candies"
         >
       </div>
       <div class="w-full md:w-1/2 px-3">
@@ -74,7 +72,7 @@
           id="grid-last-name"
           on:change={changeAuthorFullNamee}
           type="text"
-          placeholder="Doe">
+          placeholder="Jane Doe">
       </div>
     </div>
     <div class="flex flex-wrap -mx-3 mb-6">
@@ -130,38 +128,21 @@
     </div>
 </div>
 </div>
-<div
-class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
-<button
-  on:click={closeModalHandler}
-  type="button"
-  class="px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase
-    rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0
-    active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out" 
-  data-bs-dismiss="modal"
-  >
-    Close
-  </button>
-<button
-  on:click={createNewPost}
-  type="button"
-  class="px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded
-    shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
-    active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
->
-  Save changes
-</button>
-</div>
 
-<style>
-  .CreatePostCard {
-    border: 1px solid #ff3e00;
-    padding: 2.5rem;
-  }
-  .CreatePostTitle {
-    color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 1.8em;
-		font-weight: 100;
-  }
-</style>
+<div
+ class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md"
+>
+  <button
+    class="mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-full hover:shadow-lg hover:bg-gray-100"
+    on:click={closeModalHandler}
+  >
+    Cancel
+  </button>
+
+  <button
+    on:click={createNewPost}
+    class="mb-2 md:mb-0 bg-red-500 border border-red-500 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-red-600"
+  >
+    Save changes
+  </button>
+</div>

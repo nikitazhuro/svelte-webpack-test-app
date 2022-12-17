@@ -1,42 +1,16 @@
 <script>
-  import { stop_propagation } from "svelte/internal";
-import PostFormBody from "./PostFormBody.svelte";
-  import PostFormFooter from "./PostFormFooter.svelte";
+  import PostFormBody from "./PostFormBody.svelte";
   import PostFormTitle from "./PostFormTitle.svelte";
 
 	export let showModal;
   export let closeModalHandler;
 
 </script>
-<div
-  class="Modal modal fade fixed top-0 left-0 {showModal ? '' : 'hidden'} w-full h-full outline-none overflow-x-hidden overflow-y-auto"
-  id="exampleModal"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
-  <div class="ModalDialog">
-    <div
-      class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
-      <PostFormTitle />
-      <PostFormBody closeModalHandler={closeModalHandler} />
-    </div>
+
+<div class="min-w-screen h-screen animated fadeIn faster  fixed  left-0 top-0 {showModal ? 'flex' : 'hidden'} justify-center items-center inset-0 z-50 outline-none focus:outline-none" id="modal-id">
+  <div class="absolute bg-black opacity-80 inset-0 z-0"></div>
+  <div class="w-full  max-w-lg p-5 relative mx-auto my-auto rounded-xl shadow-lg  bg-white ">
+   <PostFormTitle />
+   <PostFormBody closeModalHandler={closeModalHandler} />
   </div>
 </div>
-
-<style>
-  .ModalDialog {
-    width: 600px;
-    pointer-events: none;
-    position: absolute;
-    top: calc(50% - 325px);
-    right: calc(50% - 300px);
-    background-color: white;
-    border-radius:10px;
-    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-    background-clip: padding-box;
-  }
-  .Modal {
-    background-color: rgba(255, 255, 255, 0.529);
-  }
-</style>
