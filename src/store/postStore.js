@@ -1,9 +1,5 @@
 import { writable } from "svelte/store";
 
-// interface IPost {
-
-// }
-
 const postExample = {
   id: 1,
   title: 'Example post title',
